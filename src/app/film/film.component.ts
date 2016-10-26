@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { FilmService } from './film.service';
 
 @Component({
   selector: 'film',
@@ -7,23 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmComponent implements OnInit {
   selectedFilm: any;
-  films = [{
-    title: 'A New Hope',
-    release_year: 1977,
-    winner: 'Alliance'
-  },{
-    title: 'The Empire Strikes Back',
-    release_year: 1980,
-    winner: 'Empire'
-  },{
-    title: 'Return of the Jedi',
-    release_year: 1983,
-    winner: 'Alliance'
-  }];
+  films: any[];
 
-  constructor() { }
+  constructor(private filmService: FilmService) { }
 
   ngOnInit() {
+    this.filmService.getFilms()
+    .subscribe(
+      (response) => {
+        this.films = response;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   showDetails(film){
