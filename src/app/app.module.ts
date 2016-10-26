@@ -1,23 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FilmComponent, FilmService } from './film';
+import { FilmModule } from './film/film.module';
+import { HomeComponent } from './home/home.component';
+import { routing, appRoutingProviders } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilmComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    FilmModule,
+    routing
   ],
   providers: [
-    FilmService
+    appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })

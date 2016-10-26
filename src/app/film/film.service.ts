@@ -9,7 +9,13 @@ export class FilmService {
 
   getFilms(): Observable<any>{
     return this.http.get('http://swapi.co/api/films')
-      .map(res => res.json().results);
+      .map(res => res.json().results)
+      .map(res => {
+        return res.map((item) => {
+          item.id = item.url.slice(26, 27);
+          return item;
+        })
+      });
   }
 
 }

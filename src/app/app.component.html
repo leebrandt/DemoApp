@@ -1,4 +1,21 @@
-<h1>
-  {{title}}
-</h1>
-<film></film>
+<section class="container">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="" routerLinkActive="active">SWAPP</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a routerLink="" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="films" routerLinkActive="active">Films</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 class="jumbotron">
+    {{title}}
+  </h1>
+
+  <router-outlet></router-outlet>
+
+</section>
