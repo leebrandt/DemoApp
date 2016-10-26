@@ -18,4 +18,9 @@ export class FilmService {
       });
   }
 
+  getFilm(id:number): Observable<any>{
+    return this.http.get(`http://swapi.co/api/films/${id}`)
+      .map(res => res.json());
+  }
+
 }

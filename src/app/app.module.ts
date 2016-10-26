@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FilmModule } from './film/film.module';
 import { HomeComponent } from './home/home.component';
-import { routing, appRoutingProviders } from './app.routes';
+import { AppRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -14,11 +14,9 @@ import { routing, appRoutingProviders } from './app.routes';
   imports: [
     BrowserModule,
     FilmModule,
-    routing
+    AppRoutes
   ],
-  providers: [
-    appRoutingProviders
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

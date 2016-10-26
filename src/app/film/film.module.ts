@@ -4,19 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FilmComponent } from './film.component';
+import { FilmDetailComponent } from './film.detail.component';
 import { FilmService } from './film.service';
+import { FilmRoutes } from './film.routes';
 
 @NgModule({
   declarations:[
-    FilmComponent
+    FilmComponent,
+    FilmDetailComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule
-  ],
-  exports: [
-    FilmComponent
+    HttpModule,
+    FilmRoutes
   ],
   providers:[
     FilmService

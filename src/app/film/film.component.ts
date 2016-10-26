@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { FilmService } from './film.service';
 
@@ -9,24 +10,11 @@ import { FilmService } from './film.service';
 })
 export class FilmComponent implements OnInit {
   selectedFilm: any;
-  films: any[];
+  films: Observable<any[]>;
 
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {
-    this.filmService.getFilms()
-    .subscribe(
-      (response) => {
-        this.films = response;
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    this.films = this.filmService.getFilms();
   }
-
-  showDetails(film){
-    this.selectedFilm = film;
-  }
-
 }

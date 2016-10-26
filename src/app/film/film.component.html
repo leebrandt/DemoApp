@@ -1,6 +1,6 @@
-<ul *ngFor="let film of films" >
-  <li (click)="showDetails(film)" [class.empire-wins]="film.winner === 'Empire'">
-    {{film.title}}
+<ul *ngFor="let film of films | async" >
+  <li [class.empire-wins]="film.winner === 'Empire'">
+    <a [routerLink]="['/films', film.id]">{{film.title}}</a>
   </li>
 </ul>
 
